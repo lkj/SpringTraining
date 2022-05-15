@@ -4,9 +4,12 @@ import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "PRODUCT")
 class Product {
 
     @Id @GeneratedValue
@@ -19,6 +22,14 @@ class Product {
     public Product(String name, BigDecimal price) {
         this.name = name;
         this.price = price;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -36,6 +47,4 @@ class Product {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-    
-
 }

@@ -3,25 +3,40 @@ package xyz.lokaj.productPlacement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service //dlaczego Service? co mi ta adnotacja daje
 class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
 
-    Product getById(Long id){
-        Product product = productRepository.findById(id).orElseThrow(() -> new RecordNotFoundException(id));
-        return product;
+    Product readById(Long id){
+        return productRepository.findById(id).orElseThrow(() -> new RecordNotFoundException(id));
     }
     
-    List<Product> getAll() {
+    List<Product> readAll() {
         return productRepository.findAll();
     }
 
-    void addProduct(Product product) {
-        productRepository.save(product);
+    Product createProduct(Product product) {
+        return productRepository.save(product);
+    }
+    
+    Product updateProduct(Long id, Product updatedProduct) {
+        return productRepository.findById(id).map(product -> { //w miejsce zmiennej/parametru product wpada to co wyciągnie fukcja findById
+            product.setName(updatedProduct.getName());
+            product.setPrice(updatedProduct.getPrice());
+            return productRepository.save(product);
+        })
+        .orElseGet(() -> { //tu dbsługujemy sytuację jeśli findById nie wyciągnie nic
+            updatedProduct.setId(id);
+            return productRepository.save(updatedProduct);
+        });
+    }
+
+    void deleteProduct(Long id) {
+        productRepository.deleteById(id);//. orElseThrow(() -> new RecordNotFoundException(id));
+
     }
 }
