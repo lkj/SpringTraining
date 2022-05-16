@@ -63,6 +63,18 @@ class ProductController {
     void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
     }
+
+    @GetMapping("/form")
+    public String productForm(Model model) {
+        model.addAttribute("product", new Product());
+        return "product";
+    }
+
+    @PostMapping("/form")
+    public String productSubmit(@ModelAttribute Product product, Model model) {
+        model.addAttribute("product", product);
+        return "result";
+    }
 }
 
 
