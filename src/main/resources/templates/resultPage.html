@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Rezultaty zasubmitowania</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Rezultaty</h1>
+    <p th:text="'nazwa: ' + ${product.name}" />
+    <p th:text="'cena: ' + ${product.price}" />
+    <a href="/form">Dodaj kolejny</a>
+</body>
+</html>
