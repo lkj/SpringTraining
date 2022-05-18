@@ -9,5 +9,8 @@
     <p th:text="'nazwa: ' + ${product.name}" />
     <p th:text="'cena: ' + ${product.price}" />
     <a href="/form">Dodaj kolejny</a>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Wyloguj"/>
+    </form>
 </body>
 </html>
