@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import xyz.lokaj.productPlacement.controller.ProductRepository;
+import xyz.lokaj.productPlacement.model.Product;
 
 @Configuration
 class LoadDatabase {
@@ -17,8 +19,8 @@ class LoadDatabase {
   CommandLineRunner initDatabase(ProductRepository repository) {
 
     return args -> {
-      log.info("Preloading " + repository.save(new Product("Bilbo Baggins", new BigDecimal(100))));
-      log.info("Preloading " + repository.save(new Product("Frodo Baggins", new BigDecimal(2000))));
+      log.info("Preloading " + repository.save(new Product("Kapusta", new BigDecimal(5))));
+      log.info("Preloading " + repository.save(new Product("Salata", new BigDecimal(10))));
     };
   }
 }

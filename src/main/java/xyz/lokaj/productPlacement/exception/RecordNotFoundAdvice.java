@@ -1,4 +1,4 @@
-package xyz.lokaj.productPlacement;
+package xyz.lokaj.productPlacement.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-class RecordNotFoundAdvice {
+public class RecordNotFoundAdvice {
     @ResponseBody
     @ExceptionHandler(RecordNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)

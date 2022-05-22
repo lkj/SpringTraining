@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset UTF-8" />
 </head>
     <body>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
         <form action="#" th:action="@{/form}" th:object="${product}" method="post">
             <p>Nazwa: <input type="text" th:field="*{name}" /></p>
             <p>Cena: <input type="text" th:field="*{price}" /></p>

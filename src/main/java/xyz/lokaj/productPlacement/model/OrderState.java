@@ -1,4 +1,4 @@
-package xyz.lokaj.productPlacement;
+package xyz.lokaj.productPlacement.model;
 
 public enum OrderState {
     INIT,

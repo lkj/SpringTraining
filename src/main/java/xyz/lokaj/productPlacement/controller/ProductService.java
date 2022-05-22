@@ -1,9 +1,11 @@
-package xyz.lokaj.productPlacement;
-
-import java.util.List;
+package xyz.lokaj.productPlacement.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import xyz.lokaj.productPlacement.exception.RecordNotFoundException;
+import xyz.lokaj.productPlacement.model.Product;
+
+import java.util.List;
 
 @Service //dlaczego Service? co mi ta adnotacja daje
 class ProductService {
