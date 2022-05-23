@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import xyz.lokaj.productPlacement.model.Product;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductsRepository extends JpaRepository<Product, Long> {
 }

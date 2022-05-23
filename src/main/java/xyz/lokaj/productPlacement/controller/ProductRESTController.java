@@ -61,7 +61,8 @@ class ProductRESTController {
     }
 
     @DeleteMapping("/product/{id}")
-    void deleteProduct(@PathVariable Long id) {
+    ResponseEntity<?> deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
+        return ResponseEntity.noContent().build();
     }
 }

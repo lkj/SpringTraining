@@ -11,7 +11,7 @@ import java.util.List;
 class ProductService {
 
     @Autowired
-    private ProductRepository productRepository;
+    private ProductsRepository productRepository;
 
     Product readById(Long id){
         return productRepository.findById(id).orElseThrow(() -> new RecordNotFoundException(id));
