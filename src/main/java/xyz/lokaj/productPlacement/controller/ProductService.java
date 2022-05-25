@@ -39,6 +39,5 @@ class ProductService {
 
     void deleteProduct(Long id) {
         productRepository.deleteById(id);//. orElseThrow(() -> new RecordNotFoundException(id));
-
     }
 }

@@ -21,4 +21,11 @@ public class Order {
     private OrderState state;
 
     public Order() { }
+    public Boolean isLocked() {
+        if (state == OrderState.INIT) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }

@@ -12,7 +12,9 @@ class ProductModelAssembler implements RepresentationModelAssembler<Product, Ent
 
     @Override
     public EntityModel<Product> toModel(Product product) {
-        return EntityModel.of(product, WebMvcLinkBuilder.linkTo(methodOn(ProductRESTController.class).getProduct(product.getId())).withSelfRel(), linkTo(methodOn(ProductRESTController.class).getAllProducts()).withRel("products"));
+        return EntityModel.of(product,
+                linkTo(methodOn(ProductRESTController.class).getProduct(product.getId())).withSelfRel(),
+                linkTo(methodOn(ProductRESTController.class).getAllProducts()).withRel("products"));
     }
 
 }
